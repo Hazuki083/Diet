@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root 'homes#index'
   
+  resources :blogs
+  
   get 'plans/new'
   get 'plans/edit'
   get 'blogs/index'
