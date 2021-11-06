@@ -20,10 +20,10 @@
           <% @blogs.each do |blog| %>
             <tr>
               <td>
-                <%= link_to blog.weigt , blog %>
+                <%= link_to blog.weight, blog %>
               </td>
               <td>
-                <%= blog.start_time.strftime("%m-%d") %>
+                <%= blog.created_at.strftime('%Y/%m/%d') %>
               </td>
             </tr>
             <% end %>
@@ -46,11 +46,11 @@
 
         <div class="form-group">
           <div class="form-tag">メモ</div>
-          <%= form.text_field :mamo %>
-          <!--<#%= form.datetime_select :start_time %>-->
+          <%= form.text_field :memo %>
+          <%= form.datetime_select :created_at %>
         </div>
-        
-        
+
+
         <div class="submit">
           <%= form.submit %>
         </div>

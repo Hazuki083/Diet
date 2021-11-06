@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  
   def index
     @blog = Blog.new
     @blogs = Blog.all
@@ -7,13 +8,13 @@ class BlogsController < ApplicationController
   def new
     @blog = Blog.new
   end
-  
+
   def show
     @blog = Blog.find(params[:id])
   end
 
   def create
-    Blog.create(blog_parameter)
+    Blog.create(blog_params)
     redirect_to blogs_path
   end
 
@@ -30,6 +31,6 @@ class BlogsController < ApplicationController
 private
 
  def blog_params
-   params.requir(:blog).permit(:weight, :body_fat, :memo, :image_id)
+   params.require(:blog).permit(:weight, :body_fat, :memo, :image, :day)
  end
 end

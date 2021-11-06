@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_053612) do
     t.integer "body_fat"
     t.text "memo"
     t.text "image_id"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +36,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_053612) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.integer "sex"
+    t.integer "age"
+    t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

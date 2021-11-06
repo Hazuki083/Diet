@@ -5,7 +5,8 @@ class CreateBlogs < ActiveRecord::Migration[5.2]
       t.integer :body_fat
       t.text :memo
       t.text :image_id
-
+      t.datetime :start_time
+      
       t.timestamps
     end
   end
