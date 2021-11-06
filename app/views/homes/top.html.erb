@@ -1,0 +1,25 @@
+<main>
+   <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <p id="notice"></p>
+      <div class="container">
+       <div class="row">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+         <h1><strong>ご覧いただきありがとうございます</strong>!!</h1>
+          <p> 手軽に体重記録の習慣を身につけるためのダイエットサポートのアプリケーションを作成しました。</p>
+           <p>体重を記録することで健康意識を高めていくきっかけになればと思います</p>
+            <p>A year from now you will wish you have started today.</p>
+             <div class="btn-wrapper col-10 mx-auto">
+              <div class="row">
+                <h1>Start!!</h1>
+              <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 Login" %>
+              </div>
+               <div class="row">
+               <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+               </div>
+            </div>
+        </div>
+       </div>
+      </div>
+</main>
+
+

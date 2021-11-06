@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    registrations: 'users/registrations'
 }
 
-  root 'blogs#index'
+  root 'homes#top'
 
   resources :blogs
   resources :plans, only:[:edit, :update]
