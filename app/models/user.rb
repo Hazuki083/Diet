@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :plans
+  has_many :blog_images, dependent: :destroy
 
   enum sex: {man: 0, woman: 1}
 

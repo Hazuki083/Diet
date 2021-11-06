@@ -18,7 +18,14 @@ class BlogsController < ApplicationController
   end
 
   def create
+    # @blog = Blog.new(blog_params)
+    # @blog.user_id = current_user.id
+    # @blog.save
+    #   redirect_to blog_path(@blog)
+    #   flash[:notice] = "You have created book successfully."
+    
     Blog.create(blog_params)
+    # @blog = Blog.new(blog_params)
     redirect_to blogs_path
   end
 
@@ -40,6 +47,6 @@ class BlogsController < ApplicationController
 private
 
  def blog_params
-   params.require(:blog).permit(:weight, :body_fat, :memo, :image, :day)
+   params.require(:blog).permit(:weight, :body_fat, :memo, :image, :start_time)
  end
 end

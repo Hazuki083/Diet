@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_053612) do
+ActiveRecord::Schema.define(version: 2021_11_06_105722) do
+
+  create_table "blog_images", force: :cascade do |t|
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.integer "weight"
     t.integer "body_fat"
     t.text "memo"
-    t.text "image_id"
+    t.string "image_id"
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

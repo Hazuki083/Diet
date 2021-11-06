@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = '更新しました。続いて、目標を立てましょう!'
       redirect_to new_plan_path
+    end
   end
 
   private
