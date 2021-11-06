@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  root 'homes#index'
-  
+
+  root 'blogs#index'
+
   resources :blogs
-  
+
   get 'plans/new'
   get 'plans/edit'
   get 'blogs/index'

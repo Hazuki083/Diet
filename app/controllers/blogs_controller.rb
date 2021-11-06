@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  
+
   def index
     @blog = Blog.new
     @blogs = Blog.all
@@ -13,9 +13,21 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
   def create
     Blog.create(blog_params)
     redirect_to blogs_path
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    @blog.update(blog_params)
+    redirect_to blogs_path, notice: "編集しました"
+    # else
+    #   render 'edit'
   end
 
   def destroy
@@ -24,9 +36,6 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, notice:"削除しました"
   end
 
-  def edit
-    @blog = Blog.find(params[:id])
-  end
 
 private
 
