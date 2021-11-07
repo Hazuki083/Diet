@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+  end
+
+  def edit
+  end
+
+  def create
+  end
+
   def update
     @user = current_user
     if @user.update(user_params)
@@ -16,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :sex, :age, :height)
+    params.require(:user).permit(:sex, :age, :height)
   end
 
 end

@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
+    @user = current_user
     @blog = Blog.new
     @blogs = Blog.all
   end
@@ -23,7 +25,7 @@ class BlogsController < ApplicationController
     # @blog.save
     #   redirect_to blog_path(@blog)
     #   flash[:notice] = "You have created book successfully."
-    
+
     Blog.create(blog_params)
     # @blog = Blog.new(blog_params)
     redirect_to blogs_path

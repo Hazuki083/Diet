@@ -5,10 +5,15 @@ Rails.application.routes.draw do
    registrations: 'users/registrations'
 }
 
+  # devise_scope :user do
+  #   get 'users/new' => 'users/registrations#new'
+  # end
+
   root 'homes#top'
 
   resources :blogs
   resources :plans, only:[:edit, :update]
+  resources :users
 
   get 'plans/new'
   get 'plans/edit'

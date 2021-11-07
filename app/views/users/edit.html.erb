@@ -1,0 +1,29 @@
+<main>
+ <p id="notice"></p>
+   <div class="container">
+     <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <h2>あなたのことを教えてください</h2>
+
+            <%= form_with model: @user, local:true do |f| %>
+            <div class="form-group">
+              <%= f.label :sex, "性別" %>
+              <%= f.select :sex, [["man","man"],[ "woman", "woman"]]  %>
+
+              </div>
+
+              <div class="form-group">
+              <%= f.label :age, "年齢" %>
+              <%= f.text_field :age %>
+              </div>
+
+              <div class="form-group">
+              <%= f.label :heigth, "身長" %>
+              <%= f.text_field :heigth %>
+              </div>
+              <%= f.submit "Update User", class:"btn btn-secondary" %>
+              <% end %>
+        </div>
+     </div>
+   </div>
+ </main>
