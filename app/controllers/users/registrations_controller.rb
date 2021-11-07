@@ -51,9 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+     flash[:notice] = "新規登録完了しました。次にあなたの性別・年齢・身長を入力してください"
+     edit_user_path(@user.id) 
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

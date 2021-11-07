@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  before_action :authenticate_user!,  only: [:edit]
   before_action :set_user, only: [:edit]
 
 
   def edit
-    @user = User.find(current_user.id)
+    # @user = User.find(current_user.id)
   end
 
   # def create
@@ -24,8 +25,8 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-    
-    
+
+
     # @user = User.find(params[:id])
 
 

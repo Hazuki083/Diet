@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
+  
 
   def index
     @user = current_user
@@ -33,10 +34,11 @@ class BlogsController < ApplicationController
 
   def update
     @blog = Blog.find(params[:id])
-    @blog.update(blog_params)
-    redirect_to blogs_path, notice: "編集しました"
-    # else
-    #   render 'edit'
+    if @blog.update(blog_params)
+       redirect_to blogs_path, notice: "編集しました"
+    else
+       render :edit
+    end
   end
 
   def destroy
