@@ -8,17 +8,12 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get 'users/new' => 'users/registrations#new'
   # end
-
   root 'homes#top'
-
   resources :blogs
-  resources :plans, only:[:edit, :update]
-  resources :users
+  resources :plans, only: [:index, :show, :new, :create, :destroy, :edit, :update]
+  resources :users, only: [:edit, :update]
+    # get "users/edit/:id", to: "users#edit"
+    # patch "users/edit/:id", to: "users#edit"
 
-  get 'plans/new'
-  get 'plans/edit'
-  get 'blogs/index'
-  get 'blogs/new'
-  get 'blogs/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
