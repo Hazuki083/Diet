@@ -1,4 +1,13 @@
-<h1>Plans#new</h1>
 
-<h4>開始体重</h4>
-<h4>目標体重</h4>
+ <%= form_with model: @plan, local:true do |f| %>
+            <div class="form-group">
+              <%= f.label :start_weight, "開始体重" %>
+              <%= f.text_field :start_weight %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :target_weigh, "目標体重" %>
+              <%= f.text_field :target_weight %>
+            </div>
+              <%= f.submit "プラン決定！", class:"btn btn-secondary" %>
+              <% end %>

@@ -8,7 +8,8 @@
             <%= form_with model: @user, local:true do |f| %>
             <div class="form-group">
               <%= f.label :sex, "性別" %>
-              <%= f.select :sex, [["man","man"],[ "woman", "woman"]]  %>
+              <%= f.select :sex, {'男性': 0, '女性': 1}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+              <!--<#%= f.select :sex, [[man:0,],[woman:1]]  %>-->
             </div>
 
             <div class="form-group">
