@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :plans, only: [:show, :new, :edit, :create, :destroy, :update]
   resources :users, only: [:edit, :update]
     # get "users/edit/:id", to: "users#edit"
-    # patch "users/edit/:id", to: "users#edit"
+    # patch "users/edit/:id", to: "users#update"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
