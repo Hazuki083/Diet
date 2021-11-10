@@ -1,26 +1,33 @@
 <main>
    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+   <div class="bg-info p-2 text-dark bg-opacity-50">
     <p id="notice"></p>
-      <div class="container">
-       <div class="row">
-        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-         
-         <h1><strong>ご覧いただきありがとうございます</strong>!!</h1>
+      <div class="card col-sm-5 mx-auto mt-5">
+     <div class="card-body">
+       <div class="container">
+          <div class="row">
+           <div class="mx-auto col-8 col-sm-6 col-lg-8">
+          <h4 class="mt-1 mb-3 bg-gray text-center "><h3><strong>ご覧いただき</br>ありがとうございます</strong>!!</h3>
           <p> 手軽に体重記録の習慣を身につけるためのダイエットサポートのアプリケーションを作成しました。</p>
            <p>体重を記録することで健康意識を高めていくきっかけになればと思います</p>
-            <p>A year from now you will wish you have started today.</p>
+           
+          
+           <%= image_tag('pics358.jpg') %>
+            <p>A year from now you will wish you have started today.</p></h4>
+         
+       
              <div class="btn-wrapper col-10 mx-auto">
               <div class="row">
-                <h1>Start!!</h1>
-              <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 Login" %>
+              <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success btn-sm btn-block mb-3 Login" %>
               </div>
                <div class="row">
-               <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+               <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-warning btn-sm btn-block sign_up" %>
                </div>
             </div>
+           </div>
+         </div>
         </div>
        </div>
-      </div>
 </main>
 
 
