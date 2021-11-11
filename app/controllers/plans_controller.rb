@@ -2,19 +2,30 @@ class PlansController < ApplicationController
   before_action :authenticate_user!
 
   def new
-      current_user.sex.present? && current_user.age.present?
-      # if current_user.plans.last.blank? || Date.today > current_user.plans.last.target_on
         @plan = Plan.new
-        # gon.user = current_user
-      if
+  end
+
+  def create
+    @plan = Plan.new(plan_params)
+    @plan.user_id = current_user.id
+    if @plan.save
         flash[:notice] = '目標を設定しました！'
-        redirect_to plan_path(current_user)
-     else
+        redirect_to blogs_path
+    else
       flash[:notice] = '目標が設定されていません。'
-      redirect_to edit_user_path(current_user)
-     end
+      redirect_to new_plan_path(current_user)
+    end
   end
 
   def edit
+  end
+
+  def show
+  end
+
+  private
+
+  def plan_params
+  	params.require(:plan).permit(:plan, :start_weight, :target_weight)
   end
 end

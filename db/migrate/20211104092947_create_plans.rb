@@ -3,6 +3,7 @@ class CreatePlans < ActiveRecord::Migration[5.2]
     create_table :plans do |t|
       t.integer :start_weight
       t.integer :target_weight
+      t.integer :user_id
       t.timestamps
     end
   end
