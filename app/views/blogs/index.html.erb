@@ -1,36 +1,8 @@
-
-<div class="toppage">
-  <h1 class="top">カレンダー</h1>
-  <br>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="schedule">今日の成果</div>
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th>体重</th>
-            <th>日にち</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @blogs.each do |blog| %>
-            <tr>
-              <td>
-                <%= link_to blog.weight, blog %>
-              </td>
-              <td>
-                <%= blog.start_time.strftime('%Y/%m/%d') %>
-              </td>
-            </tr>
-            <% end %>
-        </tbody>
-      </table>
-
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-4 '>
 
       <%= form_with(model: @blog, local: true) do |f| %>
-
         <div class="form-group">
           <div class="form-tag">体重</div>
           <%= f.text_field :weight %>
@@ -43,38 +15,36 @@
 
         <div class="form-group">
           <div class="form-tag">メモ</div>
-          <%= f.text_field :memo %>
+          <%= f.text_area :memo %>
         </div>
 
         <div class="form-group">
           <div class="form-tag">画像</div>
           <%= f.attachment_field :image, class: "image" %>
         </div>
+
+        <div class="form-group">
+          <div class="form-tag">日時</div>
           <%= f.datetime_select :start_time %>
         </div>
          <!--カレンダーに出力するためにstart_timeが必要-->
-
         <div class="submit">
-          <%= f.submit %>
+          <%= f.submit "登録" %>
         </div>
         <% end %>
     </div>
-
-    <br>
-
-
-    <br>
-    <div class="col-md-8">
-      <!--カレンダーと繋がる-->
-      <%= month_calendar events: @blogs do |date, blogs| %>
-        <%= date.day %>
-
-          <% blogs.each do |blog| %>
-            <div>
-              <%= link_to blog.weight, blog %>
-            </div>
+        
+      <div class="col-md-8 text-right">
+        <!--カレンダーと繋がる-->
+        <%= month_calendar events: @blogs do |date, blogs| %>
+          <%= date.day %>
+            <% blogs.each do |blog| %>
+              <div>
+                <%= link_to blog.weight, blog %>
+              </div>
+            <% end %>
           <% end %>
-          <% end %>
-    </div>
+      </div>
   </div>
 </div>
+

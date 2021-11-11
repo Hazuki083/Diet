@@ -54,8 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
      flash[:notice] = "新規登録完了しました。続いて、目標を立てましょう!"
     # edit_user_path(@user.id)
-     new_plan_path(@user.id
-     )
+     new_plan_path(@user.id)
   end
 
   # The path used after sign up for inactive accounts.
