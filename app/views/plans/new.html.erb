@@ -1,6 +1,10 @@
-<h1>プランを決める</h1>
+<div class="bg-info p-2 text-dark bg-opacity-50">
+  <div class="user" style="min-height: 500px">
+    <div class="card col-sm-5 mx-auto mt-5">
+      <div class="card-body">
+      <h4 class="mt-1 mb-3 bg-gray text-center ">目標を決める</h4>
 
- <%= form_with model: @plan, local:true do |f| %>
+  <%= form_with model: @plan, local:true do |f| %>
     <div class="form-group">
       <%= f.label :start_weight, "開始体重" %>
       <%= f.text_field :start_weight %>
@@ -14,3 +18,7 @@
       <%= f.submit "プラン決定！", class:"btn btn-secondary" %>
       <% end %>
     </div>
+   </div>
+  </div>
+</div>
+</div>

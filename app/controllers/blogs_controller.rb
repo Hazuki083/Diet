@@ -1,11 +1,13 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  
+
 
   def index
-    @user = current_user
+   if @user != current_user
+    # @user = current_user
     @blog = Blog.new
     @blogs = Blog.all
+   end
   end
 
   def new
@@ -21,15 +23,15 @@ class BlogsController < ApplicationController
   end
 
   def create
-    # @blog = Blog.new(blog_params)
-    # @blog.user_id = current_user.id
-    # @blog.save
-    #   redirect_to blog_path(@blog)
-    #   flash[:notice] = "You have created book successfully."
-
-    Blog.create(blog_params)
-    # @blog = Blog.new(blog_params)
-    redirect_to blogs_path
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+    if @blog.save
+        flash[:notice] = '投稿しました'
+        redirect_to blogs_path
+    else
+      flash[:notice] = '入力が足りてません。'
+      redirect_to  blogs_path
+    end
   end
 
   def update

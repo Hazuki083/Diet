@@ -1,29 +1,39 @@
-<h1>Blogs#edit</h1>
-<%= form_with(model: @blog, local: true) do |f| %>
+<div class="bg-info p-2 text-dark bg-opacity-50">
+  <p id="notice"><%= notice %></p>
+ <div class="user" style="min-height: 500px">
+  <div class="card col-sm-5 mx-auto mt-5">
+    <div class="card-body">
+      <h4 class="mt-1 mb-3 bg-gray text-center ">編集</h4>
 
-  <div class="weight">
-    <div class="form-tag">体重</div>
-    <%= f.text_field :weight %>
+    <%= form_with(model: @blog, local: true) do |f| %>
+
+      <div class="weight">
+        <div class="form-tag">体重</div>
+        <%= f.text_field :weight %>
+      </div>
+
+
+      <div class="body_fat">
+        <div class="form-tag">体脂肪</div>
+        <%= f.text_field :body_fat %>
+      </div>
+
+      <div class="time">
+        <div class="form-tag">メモ</div>
+        <%= f.text_field :memo %>
+      </div>
+
+      <div class="image">
+        <div class="form-tag">画像</div>
+          <%= f.attachment_field :image, placeholder: "ファイルを選択" %>
+      </div>
+
+      <div class="submit">
+        <%= f.submit "編集する"%>
+      </div>
+
+      <% end %>
+      </div>
+    </div>
   </div>
-
-
-  <div class="body_fat">
-    <div class="form-tag">体脂肪</div>
-    <%= f.text_field :body_fat %>
-  </div>
-
-  <div class="time">
-    <div class="form-tag">メモ</div>
-    <%= f.text_field :memo %>
-  </div>
-
-  <div class="image">
-    <div class="form-tag">画像</div>
-      <%= f.attachment_field :image, placeholder: "ファイルを選択" %>
-  </div>
-
-  <div class="submit">
-    <%= f.submit %>
-  </div>
-
-  <% end %>
+</div>

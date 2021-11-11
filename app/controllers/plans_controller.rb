@@ -4,6 +4,9 @@ class PlansController < ApplicationController
   def new
         @plan = Plan.new
   end
+  
+  def show
+  end
 
   def create
     @plan = Plan.new(plan_params)
@@ -20,8 +23,6 @@ class PlansController < ApplicationController
   def edit
   end
 
-  def show
-  end
 
   private
 

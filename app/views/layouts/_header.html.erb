@@ -7,7 +7,8 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <%= link_to "設定", edit_user_path(current_user), class: 'fas fa-home nav-link text-light'%>
-              <%= link_to "今日の成果", blogs_path(current_user), class: 'fas fa-users nav-link text-light' %>
+              <%= link_to "入力とカレンダー", blogs_path(current_user), class: 'fas fa-users nav-link text-light' %>
+               <%= link_to "グラフ", plan_path(current_user), class: 'fas fa-users nav-link text-light' %>
               <%= link_to "ログアウト", destroy_user_session_path, class: 'fas fa-sign-out-alt nav-link text-light',method: :delete %>
               <% end %>
             
