@@ -1,1 +1,55 @@
 <h1>plan show グラフもここに</h1>
+
+
+ <canvas id="myChart" width="300" height="100"></canvas>
+
+
+<script>
+  $(function() {
+    var ctx = document.getElementById("myChart").getContext('2d');
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      label: "体重"
+      data: {
+        labels: gon.weigth,
+        # // labelsは横軸。文字列では取り出せない
+        datasets: [{
+          label: "投稿した本の数",
+          data:gon.data,
+          # // dateは縦軸
+          backgroundColor: 'white',
+          borderColor: 'red',
+          borderWidth: 1.2,
+          fill: false
+        }]
+         {
+            type: 'line', #体重は折れ線グラフ
+            label: "体脂肪",
+            # dataでY軸を指定
+            data: gon.date,
+            backgroundColor: 'white',
+            borderColor: 'blue',
+            borderWidth: 1.2,
+            #これを書かないと棒線の下の部分が塗られてしまう
+            fill: false,
+        }]
+      },
+      options: {
+        title:  {
+          display: true,
+          text: "１週間の推移",
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              suggestedMin: 0,
+              suggestedMax: 10,
+            }
+          }]
+        }
+      }
+    });
+  })
+</script>
