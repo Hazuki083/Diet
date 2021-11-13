@@ -3,16 +3,15 @@ class BlogsController < ApplicationController
 
 
   def index
-   if @user != current_user
+   if user_signed_in?
     # @user = current_user
     @blog = Blog.new
     @blogs = Blog.all
+    @weight = Blog.where(user_id: current_user.id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    gon.today_weight = @weight
    end
   end
 
-  def new
-    @blog = Blog.new
-  end
 
   def show
     @blog = Blog.find(params[:id])

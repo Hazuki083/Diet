@@ -1,5 +1,14 @@
 <h1>plan show グラフもここに</h1>
 
+  <p>
+    <strong>開始体重</strong>
+    <%= @plan.start_weight %> kg
+  </p>
+
+  <p>
+    <strong>目標体重</strong>
+    <%= @plan.target_weight %> kg
+  </p>
 
  <canvas id="myChart" width="300" height="100"></canvas>
 
@@ -11,11 +20,12 @@
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-      label: gon.weigth,
+      label:gon.date,
+      // 日付をつけたい
          // labelsは横軸。文字列では取り出せない
         datasets: [{
           label: "体重",
-          data:gon.weigth,
+          data:gon.weight,
           // dateは縦軸
           backgroundColor: 'white',
           borderColor: 'red',
@@ -23,13 +33,13 @@
           fill: false
         },
         {
-            type: 'line', 
+            type: 'line',
             label: "体脂肪",
             data:gon.body_fat,
             backgroundColor: 'white',
             borderColor: 'blue',
             borderWidth: 1.2,
-            // #これを書かないと棒線の下の部分が塗られてしまう
+            // これを書かないと棒線の下の部分が塗られてしまう
             fill: false,
         }]
       },
@@ -43,7 +53,7 @@
             ticks: {
               beginAtZero: true,
               suggestedMin: 0,
-              suggestedMax: 10,
+              suggestedMax: 100,
             }
           }]
         }
