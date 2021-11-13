@@ -10,35 +10,33 @@
 
     var myChart = new Chart(ctx, {
       type: 'line',
-      label: "体重"
       data: {
-        labels: gon.weigth,
-        # // labelsは横軸。文字列では取り出せない
+      label: gon.weigth,
+         // labelsは横軸。文字列では取り出せない
         datasets: [{
-          label: "投稿した本の数",
-          data:gon.data,
-          # // dateは縦軸
+          label: "体重",
+          data:gon.weigth,
+          // dateは縦軸
           backgroundColor: 'white',
           borderColor: 'red',
           borderWidth: 1.2,
           fill: false
-        }]
-         {
-            type: 'line', #体重は折れ線グラフ
+        },
+        {
+            type: 'line', 
             label: "体脂肪",
-            # dataでY軸を指定
-            data: gon.date,
+            data:gon.body_fat,
             backgroundColor: 'white',
             borderColor: 'blue',
             borderWidth: 1.2,
-            #これを書かないと棒線の下の部分が塗られてしまう
+            // #これを書かないと棒線の下の部分が塗られてしまう
             fill: false,
         }]
       },
       options: {
         title:  {
           display: true,
-          text: "１週間の推移",
+          text: "体重・体脂肪の推移",
         },
         scales: {
           yAxes: [{

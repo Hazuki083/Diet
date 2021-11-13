@@ -53,6 +53,6 @@ class BlogsController < ApplicationController
 private
 
  def blog_params
-   params.require(:blog).permit(:weight, :body_fat, :memo, :image, :start_time)
+   params.require(:blog).permit(:weight, :body_fat, :memo, :image, :start_time).merge(user_id: current_user.id)
  end
 end
