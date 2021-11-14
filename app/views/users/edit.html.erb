@@ -1,24 +1,33 @@
 <main>
- <p id="notice"></p>
-   <div class="container">
-     <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-            <h2>ユーザー情報の編集</h2>
-
-            <%= form_with model: @user, local:true do |f| %>
-            
-            <div class="form-group">
-              <%= f.label :age, "年齢" %>
-              <%= f.text_field :age %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :heigth, "身長" %>
-              <%= f.text_field :heigth %>
-            </div>
-              <%= f.submit "ユーザー情報登録", class:"btn btn-secondary" %>
-              <% end %>
+  <div class="container">
+    <p id="notice"></p>
+     <div class="user" style="min-height: 500px">
+       <div class="card col-sm-5 mx-auto mt-5">
+         <div class="card-body">
+          <h4 class="mt-1 mb-3 bg-gray text-center ">ユーザー情報編集</h4>
+              <%= form_with model: @user, local:true do |f| %>
+                <div class="form-group">
+                  <%= f.label :name, "名前" %>
+                  <%= f.text_field :name %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email, "email" %>
+                  <%= f.text_field :email %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :age, "年齢" %>
+                  <%= f.text_field :age %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :heigth, "身長" %>
+                  <%= f.text_field :heigth %>
+                </div>
+                <div class="btn">
+                  <%= f.submit "ユーザー情報登録", class:"btn btn-secondary" %>
+                  <% end %>
+                </div>
         </div>
-     </div>
-   </div>
- </main>
+        </div>
+      </div>
+  </div>
+</main>

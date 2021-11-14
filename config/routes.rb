@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   #   get 'users/new' => 'users/registrations#new'
   # end
   root 'homes#top'
-  resources :blogs
-  resources :plans, only: [:new, :show, :edit, :create, :destroy, :update]
+  resources :blogs, only: [:index, :show, :new, :create, :destroy, :edit, :update]
+  resources :plans, only: [:show, :new, :create, :destroy, :edit, :update]
   resources :users, only: [:edit, :update]
     # get "users/edit/:id", to: "users#edit"
     # patch "users/edit/:id", to: "users#update"

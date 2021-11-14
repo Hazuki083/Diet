@@ -5,13 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= include_gon %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <header>
-
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -19,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-              <%= link_to "設定", edit_user_path(current_user), class: 'fas fa-home nav-link text-light'%>
-              <%= link_to "入力とカレンダー", blogs_path(current_user), class: 'fas fa-users nav-link text-light' %>
-              <%= link_to "グラフ", plan_path(current_user), class: 'fas fa-users nav-link text-light' %>
-              <%= link_to "ログアウト", destroy_user_session_path, class: 'fas fa-sign-out-alt nav-link text-light',method: :delete %>
+              <%= link_to "設定", edit_user_path(current_user), class: 'nav-link text-light'%>
+              <%= link_to "入力とカレンダー", blogs_path(current_user), class: 'nav-link text-light' %>
+              <%= link_to "グラフ", plan_path(current_user), class: 'nav-link text-light' %>
+              <%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-light',method: :delete %>
               <% end %>
 
             </ul>
@@ -30,16 +29,8 @@
         </div>
       </nav>
     </header>
-
              <%= flash[:notice] %>
              <%= yield %>
-
   </body>
-  <!--<footer>-->
-  <!--    <div class="container mt-5">-->
-  <!--	<div class="row">-->
-  <!--  	<div class="mx-auto">-->
-  <!--    <p>CopyRight o.hazuki</p>-->
-  <!--</footer>-->
-
+  <%= render "layouts/footer" %>
 </html>

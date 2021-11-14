@@ -1,26 +1,20 @@
-<!--<div class="bg-info p-2 text-dark bg-opacity-50">-->
-<!-- <div class="user" style="min-height: 500px">-->
-<!--  <div class="card col-sm-5 mx-auto mt-5">-->
-<!--    <div class="card-body">-->
-<!--      <h4 class="mt-1 mb-3 bg-gray text-center ">グラフ</h4>-->
-
-      <p>
-        <strong>開始体重</strong>
-        <%= @plan.start_weight %> kg
-      </p>
-
-      <p>
-        <strong>目標体重</strong>
-        <%= @plan.target_weight %> kg
-      </p>
-
+            <p>
+              <strong>年齢</strong>
+                <%= @user.age %> 歳
+            </p>
+            <p>
+              <strong>身長</strong>
+                <%= @user.height %> cm
+            </p>
+            <p>
+              <strong>開始体重</strong>
+              <%= @plan.start_weight %> kg
+            </p>
+            <p>
+              <strong>目標体重</strong>
+              <%= @plan.target_weight %> kg
+            </p>
      <canvas id="myChart" width="300" height="200"></canvas>
-
-<!--    </div>-->
-<!--   </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 
 <script>
   $(function() {
@@ -35,7 +29,6 @@
         datasets: [{
           label: "体重",
           data:gon.weight,
-          // dateは縦軸
           backgroundColor: 'white',
           borderColor: 'red',
           borderWidth: 2,
@@ -59,10 +52,11 @@
         },
         scales: {
            yAxes: [{
-            id: "y-axis-1",   // Y軸のID
+            // 体重
+            id: "y-axis-1",
             type: "linear",   // linear固定
             position: "left", // どちら側に表示される軸か？
-            ticks: {          // スケール
+            ticks: {
                 max: 100,
                 min: 1,
                 stepSize: 1
@@ -71,6 +65,7 @@
                 drawOnChartArea: false,
             },
         }, {
+          // 体脂肪
             id: "y-axis-2",
             type: "linear",
             position: "right",
