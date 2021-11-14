@@ -7,8 +7,12 @@ class BlogsController < ApplicationController
     # @user = current_user
     @blog = Blog.new
     @blogs = Blog.all
+    @user = current_user
+    # グラフ表示のため必要
     @weight = Blog.where(user_id: current_user.id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
     gon.today_weight = @weight
+    @body_fat = Blog.where(user_id: current_user.id, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    gon.today_body_fat = @body_fat
    end
   end
 
@@ -23,7 +27,8 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
+    # @blog.user_id = current_user.id
+    @blog[:start_time] = Date.today.strftime("%Y-%m-%d")
     if @blog.save
         flash[:notice] = '投稿しました'
         redirect_to blogs_path

@@ -1,16 +1,25 @@
-<h1>plan show グラフもここに</h1>
+<!--<div class="bg-info p-2 text-dark bg-opacity-50">-->
+<!-- <div class="user" style="min-height: 500px">-->
+<!--  <div class="card col-sm-5 mx-auto mt-5">-->
+<!--    <div class="card-body">-->
+<!--      <h4 class="mt-1 mb-3 bg-gray text-center ">グラフ</h4>-->
 
-  <p>
-    <strong>開始体重</strong>
-    <%= @plan.start_weight %> kg
-  </p>
+      <p>
+        <strong>開始体重</strong>
+        <%= @plan.start_weight %> kg
+      </p>
 
-  <p>
-    <strong>目標体重</strong>
-    <%= @plan.target_weight %> kg
-  </p>
+      <p>
+        <strong>目標体重</strong>
+        <%= @plan.target_weight %> kg
+      </p>
 
- <canvas id="myChart" width="300" height="100"></canvas>
+     <canvas id="myChart" width="300" height="200"></canvas>
+
+<!--    </div>-->
+<!--   </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 <script>
@@ -29,7 +38,7 @@
           // dateは縦軸
           backgroundColor: 'white',
           borderColor: 'red',
-          borderWidth: 1.2,
+          borderWidth: 2,
           fill: false
         },
         {
@@ -38,7 +47,7 @@
             data:gon.body_fat,
             backgroundColor: 'white',
             borderColor: 'blue',
-            borderWidth: 1.2,
+            borderWidth: 2,
             // これを書かないと棒線の下の部分が塗られてしまう
             fill: false,
         }]
@@ -49,13 +58,28 @@
           text: "体重・体脂肪の推移",
         },
         scales: {
-          yAxes: [{
+           yAxes: [{
+            id: "y-axis-1",   // Y軸のID
+            type: "linear",   // linear固定
+            position: "left", // どちら側に表示される軸か？
+            ticks: {          // スケール
+                max: 100,
+                min: 1,
+                stepSize: 1
+            },
+             gridLines: { // このオプションを追加
+                drawOnChartArea: false,
+            },
+        }, {
+            id: "y-axis-2",
+            type: "linear",
+            position: "right",
             ticks: {
-              beginAtZero: true,
-              suggestedMin: 0,
-              suggestedMax: 100,
-            }
-          }]
+                max: 35,
+                min: 1,
+                stepSize: 1
+            },
+        }],
         }
       }
     });

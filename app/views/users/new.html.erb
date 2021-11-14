@@ -7,12 +7,12 @@
 
             <%= form_with model: @user, local:true do |f| %>
             <div class="form-group">
-              <%= f.label :age, "年齢" %>
+              <%= f.label :age, "年齢" %> 歳
               <%= f.text_field :age %>
             </div>
 
             <div class="form-group">
-              <%= f.label :heigth, "身長" %>
+              <%= f.label :heigth, "身長" %> cm
               <%= f.text_field :heigth %>
             </div>
               <%= f.submit "ユーザー情報登録", class:"btn btn-secondary" %>
